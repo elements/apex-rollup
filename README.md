@@ -107,6 +107,8 @@ In addition to the above, some other considerations when it comes to the where c
 
 Any time a polymorphic field is used in your `Calc Item Where Clause`, you must also have a constraint on the parent-level `Type` in order for it to work. If you are filtering on `Task.What`, for example, you must have only a single SObject-parent type as part of your where clause, e.g. `What.Name = 'someName' AND What.Type = 'Account'`.
 
+When using `NOT LIKE` in `Calc Item Where Clause` be sure to use SQL style clause like `Name NOT LIKE 'Acme Corp'`. Using SOQL Style `(NOT Name LIKE 'Acme Corp')` will cause parsing errors.
+
 #### Rollup Custom Metadata Field Breakdown
 
 Within the `Rollup__mdt` custom metadata type, add a new record with fields:
